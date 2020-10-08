@@ -1,0 +1,36 @@
+< THE SYMBOL TABLE >  A.exe  --  emu8086 assembler version: 4.08 
+===================================================================================================
+Name                     	Offset    	Size      	Type      	Segment   
+===================================================================================================
+STACK                    	00000     	-5        	SEGMENT   	(ITSELF)  
+DATA                     	00010     	-5        	SEGMENT   	(ITSELF)  
+MSG                      	00000     	1         	VAR       	data      
+VIRI1                    	00019     	1         	VAR       	data      
+VIRI2                    	00025     	1         	VAR       	data      
+VIRI3                    	00037     	1         	VAR       	data      
+VIRI4                    	00047     	1         	VAR       	data      
+VDIR                     	00053     	1         	VAR       	data      
+DTA                      	0005B     	1         	VAR       	data      
+DRIVE                    	00186     	1         	VAR       	data      
+ALL                      	0018F     	1         	VAR       	data      
+NEW                      	00196     	1         	VAR       	data      
+FNAME                    	0019D     	1         	VAR       	data      
+ZERO                     	002CB     	1         	VAR       	data      
+CODE                     	00050     	-5        	SEGMENT   	(ITSELF)  
+MAIN                     	00000     	-1        	NEAR      	code      
+PROMPT                   	00007     	-1        	LABEL     	code      
+SMALL_HAND               	0001A     	-1        	LABEL     	code      
+EXIT                     	000CA     	-1        	LABEL     	code      
+SEARCH                   	000CE     	-1        	NEAR      	code      
+NEXT                     	000CE     	-1        	LABEL     	code      
+UIO                      	00100     	-1        	LABEL     	code      
+OUTF                     	00107     	-1        	LABEL     	code      
+DELETE                   	00108     	-1        	NEAR      	code      
+UNNAMED                  	00112     	-1        	NEAR      	code      
+NEW_SEARCH               	0012F     	-1        	NEAR      	code      
+N_NEXT                   	0012F     	-1        	LABEL     	code      
+N_OUTF                   	00183     	-1        	LABEL     	code      
+===================================================================================================
+[ 9/21/2013  --  2:08:52 AM ] 
+< END >
+ 

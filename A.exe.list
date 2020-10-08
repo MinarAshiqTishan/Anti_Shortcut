@@ -1,0 +1,537 @@
+EMU8086 GENERATED LISTING. MACHINE CODE <- SOURCE.
+ 
+A.exe -- emu8086 assembler version: 4.08  
+ 
+[ 9/21/2013  --  2:08:52 AM ] 
+ 
+===================================================================================================
+[LINE]     LOC: MACHINE CODE                          SOURCE
+===================================================================================================
+ 
+[   1]        :                                       .MODEL SMALL
+[   2]        :                                       .STACK 100H
+[   3]        :                                       .DATA
+[   4]        :                                       
+[   5]    0100: 0D 45 6E 74 65 72 20 55 53 42 20 44   msg   db 0dh,'Enter USB Drive name:  $'
+                72 69 76 65 20 6E 61 6D 65 3A 20 20 
+                24                                  
+[   6]        :                                       
+[   7]    0119: 00 3A 5C 2A 2E 69 6E 69 00 0D 0A 24   viri1 db ?,':\*.ini',0,0dh,0ah,'$'
+                                                    
+[   8]        :                                       
+[   9]    0125: 00 3A 5C 61 75 74 6F 72 75 6E 2E 69   viri2 db ?,':\autorun.inf',0,0dh,0ah,'$'
+                6E 66 00 0D 0A 24                   
+[  10]        :                                       
+[  11]    0137: 00 3A 5C 74 68 75 6D 62 73 2E 64 62   viri3 db ?,':\thumbs.db',0,0dh,0ah,'$'
+                00 0D 0A 24                         
+[  12]        :                                       
+[  13]    0147: 00 3A 5C 2A 2E 6C 6E 6B 00 0D 0A 24   viri4 db ?,':\*.lnk',0,0dh,0ah,'$'
+                                                    
+[  14]        :                                       
+[  15]    0153: 00 3A 5C FF 00 0D 0A 24               vdir  db ?,':\',0ffh,0,0dh,0ah,'$'
+[  16]        :                                       
+[  17]    015B: 00 00 00 00 00 00 00 00 00 00 00 00   DTA   db 128h dup(0),0dh,0ah,'$'
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 0D 0A 24    
+[  18]        :                                       
+[  19]    0286: 00 3A 5C FF 5C 2A 2E 2A 00            drive db ?,':\',0ffh,'\*.*',0
+[  20]        :                                       
+[  21]    028F: 00 3A 5C 2A 2E 2A 00                  all   db ?,':\*.*',0
+[  22]        :                                       
+[  23]    0296: 77 6F 6E 6B 61 00 24                  new   db 'wonka',0,'$'
+[  24]        :                                       
+[  25]    029D: 00 3A 5C 00 00 00 00 00 00 00 00 00   fname db ?,':\',128h dup(0),0dh,0ah,'$'
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 0D 
+                0A 24                               
+[  26]        :                                       
+[  27]    03CB: 00 00 00 00 00 00 00 00 00 00 00 00   zero db   128h dup(0)
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00 00 00 00 00 
+                00 00 00 00 00 00 00 00             
+[  28]        :                                       .CODE
+[  29]        :                                       
+[  30]    0500:                                       MAIN PROC
+[  31]        :                                       
+[  32]    0500: B8 10 00                              MOV AX,@DATA
+[  33]    0503: 8E D8                                 MOV DS,AX     ;initialize data
+[  34]    0505: 8E C0                                 mov es,ax
+[  35]        :                                       
+[  36]        :                                       ;prompt user to define drive name
+[  37]        :                                       
+[  38]    0507:                                       prompt:
+[  39]        :                                       
+[  40]    0507: B4 09                                 mov ah,9             ;function: PRINT STRING TO STANDARD OUTPUT
+[  41]    0509: BA 00 00                              lea dx,msg           ;point to PROMPT
+[  42]    050C: CD 21                                 int 21h              ;call DOS
+[  43]        :                                       
+[  44]    050E: B4 01                                 mov ah,1             ;function: SINGLE KEY INPUT
+[  45]    0510: CD 21                                 int 21h              ;do it
+[  46]        :                                       ;drive name is in al now
+[  47]        :                                       
+[  48]        :                                       
+[  49]    0512: 3C 41                                 cmp al,'A'           ;check if name inside A to Z
+[  50]    0514: 7C F1                                 jl  prompt
+[  51]    0516: 3C 5A                                 cmp al,'Z'
+[  52]    0518: 7F 00                                 jg small_hand        ;if not check small hand
+[  53]        :                                       
+[  54]    051A:                                       small_hand:
+[  55]        :                                       
+[  56]    051A: 3C 61                                 cmp al,'a'           ;check if name inside a to z
+[  57]    051C: 7C E9                                 jl prompt
+[  58]    051E: 3C 7A                                 cmp al,'z'
+[  59]    0520: 7F E5                                 jg prompt
+[  60]        :                                       
+[  61]    0522: F8                                    clc                  ;clear carry flag after comparison
+[  62]        :                                       
+[  63]        :                                       
+[  64]        :                                       
+[  65]        :                                       ;set drive name for viri files
+[  66]    0523: A2 9D 01                              mov fname,al
+[  67]    0526: A2 86 01                              mov drive,al
+[  68]    0529: A2 8F 01                              mov all,al
+[  69]    052C: A2 19 00                              mov viri1,al
+[  70]    052F: A2 25 00                              mov viri2,al
+[  71]    0532: A2 37 00                              mov viri3,al
+[  72]    0535: A2 47 00                              mov viri4,al
+[  73]    0538: A2 53 00                              mov vdir,al
+[  74]        :                                       
+[  75]        :                                       ;print the viri names and location to search in
+[  76]        :                                       
+[  77]    053B: B4 02                                 mov ah,2
+[  78]    053D: B2 0D                                 mov dl,0dh
+[  79]    053F: CD 21                                 int 21h
+[  80]        :                                       
+[  81]    0541: B2 0A                                 mov dl,0ah
+[  82]    0543: CD 21                                 int 21h
+[  83]        :                                       
+[  84]        :                                       
+[  85]    0545: B4 09                                 mov ah,9h
+[  86]    0547: BA 19 00                              mov dx, offset viri1
+[  87]    054A: CD 21                                 int 21h
+[  88]    054C: BA 25 00                              mov dx, offset viri2
+[  89]    054F: CD 21                                 int 21h
+[  90]    0551: BA 37 00                              mov dx, offset viri3
+[  91]    0554: CD 21                                 int 21h
+[  92]    0556: BA 47 00                              mov dx, offset viri4
+[  93]    0559: CD 21                                 int 21h
+[  94]    055B: BA 53 00                              mov dx, offset vdir
+[  95]    055E: CD 21                                 int 21h
+[  96]        :                                       
+[  97]        :                                       
+[  98]        :                                       ;search for the viri files in the drive
+[  99]        :                                       
+[ 100]    0560: BA 5B 00                              mov dx,OFFSET DTA     ; DS:DX points to DTA
+[ 101]    0563: B4 1A                                 mov ah,1AH            ; function 1Ah - set DTA
+[ 102]    0565: CD 21                                 int 21h               ; call DOS service
+[ 103]        :                                       
+[ 104]        :                                       ;          *.*
+[ 105]        :                                       ;-------------------------
+[ 106]    0567: BB 6E 00                              mov bx,'n'
+[ 107]    056A: B4 4E                                 mov ah,4eh            ;function : FIND FIRST FILE SEARCH
+[ 108]    056C: BA 8F 01                              mov dx,offset all   ;point to the viri1 string
+[ 109]    056F: B9 07 00                              mov cx,07h             ;read only,hidden,system attribute
+[ 110]    0572: CD 21                                 int 21h               ;call DOS
+[ 111]        :                                       
+[ 112]    0574: E8 57 00                              call SEARCH
+[ 113]        :                                       
+[ 114]        :                                       
+[ 115]        :                                       ;          *.ini
+[ 116]        :                                       ;-------------------------
+[ 117]    0577: BB 64 00                              mov bx,'d'
+[ 118]    057A: B4 4E                                 mov ah,4eh            ;function : FIND FIRST FILE SEARCH
+[ 119]    057C: BA 19 00                              mov dx,offset viri1   ;point to the viri1 string
+[ 120]    057F: B9 07 00                              mov cx,07h             ;read only,hidden,system attribute
+[ 121]    0582: CD 21                                 int 21h               ;call DOS
+[ 122]        :                                       
+[ 123]    0584: E8 47 00                              call SEARCH
+[ 124]        :                                       
+[ 125]        :                                       
+[ 126]        :                                       
+[ 127]        :                                       
+[ 128]        :                                       
+[ 129]        :                                       ;        autorun.inf
+[ 130]        :                                       ;-------------------------
+[ 131]    0587: BB 64 00                              mov bx,'d'
+[ 132]    058A: B4 4E                                 mov ah,4eh            ;function : FIND FIRST FILE SEARCH
+[ 133]    058C: BA 25 00                              mov dx,offset viri2   ;point to the viri2 string
+[ 134]    058F: B9 07 00                              mov cx,07h             ;read only,hidden,system attribute
+[ 135]    0592: CD 21                                 int 21h               ;call DOS
+[ 136]        :                                       
+[ 137]    0594: E8 37 00                              call SEARCH
+[ 138]        :                                       
+[ 139]        :                                       
+[ 140]        :                                       
+[ 141]        :                                       
+[ 142]        :                                       
+[ 143]        :                                       
+[ 144]        :                                       ;         thumbs.db
+[ 145]        :                                       ;-------------------------
+[ 146]    0597: BB 64 00                              mov bx,'d'
+[ 147]    059A: B4 4E                                 mov ah,4eh            ;function : FIND FIRST FILE SEARCH
+[ 148]    059C: BA 37 00                              mov dx,offset viri3   ;point to the viri3 string
+[ 149]    059F: B9 07 00                              mov cx,07h            ;read only,hidden,system attribute
+[ 150]    05A2: CD 21                                 int 21h               ;call DOS
+[ 151]        :                                       
+[ 152]    05A4: E8 27 00                              call SEARCH
+[ 153]        :                                       
+[ 154]        :                                       
+[ 155]        :                                       
+[ 156]        :                                       
+[ 157]        :                                       
+[ 158]        :                                       
+[ 159]        :                                       ;         *.lnk
+[ 160]        :                                       ;-------------------------
+[ 161]    05A7: BB 64 00                              mov bx,'d'
+[ 162]    05AA: B4 4E                                 mov ah,4eh            ;function : FIND FIRST FILE SEARCH
+[ 163]    05AC: BA 47 00                              mov dx,offset viri4   ;point to the viri4 string
+[ 164]    05AF: B9 07 00                              mov cx,07h            ;read only,hidden,system attribute
+[ 165]    05B2: CD 21                                 int 21h               ;call DOS
+[ 166]        :                                       
+[ 167]    05B4: E8 17 00                              call SEARCH
+[ 168]        :                                       
+[ 169]        :                                       
+[ 170]        :                                       
+[ 171]        :                                       
+[ 172]        :                                       
+[ 173]        :                                       
+[ 174]        :                                       ;     unnamed folder
+[ 175]        :                                       ;-------------------------
+[ 176]    05B7: BB 6E 00                              mov bx,'n'
+[ 177]    05BA: B4 4E                                 mov ah,4eh            ;function : FIND FIRST FILE SEARCH
+[ 178]    05BC: BA 53 00                              mov dx,offset vdir    ;point to the vdir string
+[ 179]    05BF: B9 17 00                              mov cx,17h            ;read only,hidden,system,directory attribute
+[ 180]    05C2: CD 21                                 int 21h               ;call DOS
+[ 181]        :                                       
+[ 182]    05C4: E8 07 00                              call search
+[ 183]        :                                       
+[ 184]    05C7: E8 48 00                              call unnamed
+[ 185]        :                                       
+[ 186]        :                                       
+[ 187]        :                                       
+[ 188]    05CA:                                       exit:
+[ 189]    05CA: B4 4C                                 mov ah,4ch           ;function: TERMINATE PROGRAM
+[ 190]    05CC: CD 21                                 int 21h              ;do it
+[ 191]        :                                       
+[ 192]        :                                       MAIN ENDP
+[ 193]        :                                       
+[ 194]        :                                       
+[ 195]        :                                       
+[ 196]        :                                       
+[ 197]        :                                       
+[ 198]        :                                       
+[ 199]    05CE:                                       SEARCH PROC
+[ 200]        :                                       
+[ 201]        :                                       
+[ 202]    05CE:                                       next:
+[ 203]    05CE: 72 37                                 jc outf               ;if there is no file as specified
+[ 204]        :                                       ;carry flag is set. so if carry=1
+[ 205]        :                                       ;program will exit
+[ 206]        :                                       
+[ 207]        :                                       ;add drive:\ at start of file name
+[ 208]        :                                       
+[ 209]    05D0: A0 86 01                              mov al,[drive]
+[ 210]    05D3: BF 76 00                              mov di, offset DTA+1bh    ;point to 3 bytes before the name
+[ 211]    05D6: AA                                    stosb
+[ 212]        :                                       
+[ 213]    05D7: A0 87 01                              mov al,[drive+1]
+[ 214]    05DA: BF 77 00                              mov di, offset DTA+1ch    ;point to 3 bytes before the name
+[ 215]    05DD: AA                                    stosb
+[ 216]        :                                       
+[ 217]    05DE: A0 88 01                              mov al,[drive+2]
+[ 218]    05E1: BF 78 00                              mov di, offset DTA+1dh    ;point to 3 bytes before the name
+[ 219]    05E4: AA                                    stosb
+[ 220]        :                                       
+[ 221]        :                                       ;print names
+[ 222]        :                                       
+[ 223]    05E5: B4 09                                 mov ah,9h                 ;function:PRINT STRING TO STANDARD OUTPUT
+[ 224]    05E7: BA 76 00                              mov dx, offset DTA+1bh    ;the file name in DTA is
+[ 225]        :                                       ;located at the
+[ 226]        :                                       ;dta address+1eh location
+[ 227]        :                                       ;and drive at address+1bh
+[ 228]        :                                       ;so point there
+[ 229]    05EA: CD 21                                 int 21h                   ;call DOS
+[ 230]        :                                       
+[ 231]        :                                       ;change attributes to show files
+[ 232]        :                                       
+[ 233]    05EC: B4 43                                 mov ah,43h                ;function: get/change attributes
+[ 234]    05EE: BA 76 00                              mov dx, offset DTA+1bh
+[ 235]    05F1: B0 01                                 mov al,1
+[ 236]    05F3: B9 00 00                              mov cx,0                  ;clear all attributes
+[ 237]    05F6: CD 21                                 int 21h
+[ 238]        :                                       
+[ 239]        :                                       ;delete
+[ 240]    05F8: 83 FB 64                              cmp bx,'d'
+[ 241]    05FB: 75 03                                 jne  uio
+[ 242]    05FD: E8 08 00                              call delete
+[ 243]        :                                       
+[ 244]    0600:                                       uio:
+[ 245]        :                                       
+[ 246]        :                                       
+[ 247]    0600: F8                                    clc
+[ 248]        :                                       
+[ 249]    0601: B4 4F                                 mov ah,4fh            ;functiom: find next file
+[ 250]    0603: CD 21                                 int 21h
+[ 251]    0605: EB C7                                 jmp next
+[ 252]        :                                       
+[ 253]    0607:                                       outf:
+[ 254]        :                                       
+[ 255]    0607: C3                                    ret
+[ 256]        :                                       
+[ 257]        :                                       
+[ 258]        :                                       
+[ 259]        :                                       SEARCH ENDP
+[ 260]        :                                       
+[ 261]    0608:                                       DELETE PROC
+[ 262]    0608: 53                                    push bx
+[ 263]        :                                       
+[ 264]        :                                       
+[ 265]    0609: B4 41                                 mov ah,41h                   ;FUNCTION:DELETE FILE
+[ 266]    060B: BA 76 00                              mov dx, offset DTA+1bh
+[ 267]    060E: CD 21                                 int 21h
+[ 268]        :                                       
+[ 269]    0610: 5B                                    pop bx
+[ 270]    0611: C3                                    ret
+[ 271]        :                                       DELETE ENDP
+[ 272]        :                                       
+[ 273]        :                                       
+[ 274]        :                                       ;RMDIR PROC
+[ 275]        :                                       ;    push bx
+[ 276]        :                                       ;
+[ 277]        :                                       ;
+[ 278]        :                                       ;    mov ah,3Ah                  ;function: REMOVE DIRECTORY
+[ 279]        :                                       ;    mov dx, offset DTA+1bh
+[ 280]        :                                       ;    int 21h
+[ 281]        :                                       ;
+[ 282]        :                                       ;    pop bx
+[ 283]        :                                       ;    ret
+[ 284]        :                                       ;
+[ 285]        :                                       ;RMDIR ENDP
+[ 286]        :                                       
+[ 287]        :                                       
+[ 288]    0612:                                       UNNAMED PROC
+[ 289]    0612: 53                                    push bx
+[ 290]        :                                       
+[ 291]        :                                       
+[ 292]    0613: B4 4E                                 mov ah,4eh            ;function : FIND FIRST FILE SEARCH
+[ 293]    0615: BA 86 01                              mov dx,offset drive   ;point to the new drive string
+[ 294]    0618: B9 07 00                              mov cx,07h             ;read only,hidden,system attribute
+[ 295]    061B: CD 21                                 int 21h               ;call DOS
+[ 296]        :                                       
+[ 297]    061D: E8 0F 00                              call new_SEARCH
+[ 298]        :                                       
+[ 299]    0620: B4 4E                                 mov ah,4eh            ;function : FIND FIRST FILE SEARCH
+[ 300]    0622: BA 86 01                              mov dx,offset drive   ;point to the new drive string
+[ 301]    0625: B9 10 00                              mov cx,10h             ;read only,hidden,system attribute
+[ 302]    0628: CD 21                                 int 21h               ;call DOS
+[ 303]        :                                       
+[ 304]    062A: E8 02 00                              call new_SEARCH
+[ 305]        :                                       
+[ 306]        :                                       
+[ 307]        :                                       
+[ 308]    062D: 5B                                    pop bx
+[ 309]    062E: C3                                    ret
+[ 310]        :                                       UNNAMED ENDP
+[ 311]        :                                       
+[ 312]    062F:                                       new_SEARCH PROC
+[ 313]        :                                       
+[ 314]        :                                       
+[ 315]    062F:                                       n_next:
+[ 316]    062F: 72 52                                 jc n_outf               ;if there is no file as specified
+[ 317]        :                                       ;carry flag is set. so if carry=1
+[ 318]        :                                       ;program will exit
+[ 319]        :                                       
+[ 320]        :                                       
+[ 321]        :                                       
+[ 322]        :                                       ;print names
+[ 323]        :                                       
+[ 324]    0631: B4 09                                 mov ah,9h                 ;function:PRINT STRING TO STANDARD OUTPUT
+[ 325]    0633: BA 79 00                              mov dx, offset DTA+1eh    ;the file name in DTA is
+[ 326]        :                                       ;located at the
+[ 327]        :                                       ;dta address+1eh location
+[ 328]        :                                       ;and drive at address+1bh
+[ 329]        :                                       ;so point there
+[ 330]    0636: CD 21                                 int 21h                   ;call DOS
+[ 331]        :                                       
+[ 332]        :                                       
+[ 333]    0638: BE 79 00                              mov si, offset DTA+1eh
+[ 334]    063B: BF A0 01                              mov di, offset fname+3
+[ 335]    063E: B9 14 00                              mov cx,20
+[ 336]    0641: F3 A4                                 rep movsb
+[ 337]        :                                       
+[ 338]        :                                       
+[ 339]    0643: FC                                    cld
+[ 340]    0644: A0 86 01                              mov al,[drive]
+[ 341]    0647: BF 74 00                              mov di, offset DTA+19h    ;point to 3 bytes before the name
+[ 342]    064A: AA                                    stosb
+[ 343]        :                                       
+[ 344]    064B: A0 87 01                              mov al,[drive+1]
+[ 345]    064E: BF 75 00                              mov di, offset DTA+1ah    ;point to 3 bytes before the name
+[ 346]    0651: AA                                    stosb
+[ 347]        :                                       
+[ 348]    0652: A0 88 01                              mov al,[drive+2]
+[ 349]    0655: BF 76 00                              mov di, offset DTA+1bh    ;point to 3 bytes before the name
+[ 350]    0658: AA                                    stosb
+[ 351]        :                                       
+[ 352]    0659: A0 89 01                              mov al,[drive+3]
+[ 353]    065C: BF 77 00                              mov di, offset DTA+1ch    ;point to 3 bytes before the name
+[ 354]    065F: AA                                    stosb
+[ 355]        :                                       
+[ 356]    0660: A0 8A 01                              mov al,[drive+4]
+[ 357]    0663: BF 78 00                              mov di, offset DTA+1dh    ;point to 3 bytes before the name
+[ 358]    0666: AA                                    stosb
+[ 359]        :                                       
+[ 360]    0667: B4 56                                 mov ah,56h
+[ 361]    0669: BA 74 00                              mov dx,offset DTA+19h
+[ 362]    066C: BF 9D 01                              mov di, offset fname
+[ 363]    066F: CD 21                                 int 21h
+[ 364]        :                                       
+[ 365]    0671: BE CB 02                              mov si, offset zero
+[ 366]    0674: BF A0 01                              mov di, offset fname+3
+[ 367]    0677: B9 14 00                              mov cx,20
+[ 368]    067A: F3 A4                                 rep movsb
+[ 369]        :                                       
+[ 370]    067C: F8                                    clc
+[ 371]        :                                       
+[ 372]    067D: B4 4F                                 mov ah,4fh            ;functiom: find next file
+[ 373]    067F: CD 21                                 int 21h
+[ 374]    0681: EB AC                                 jmp n_next
+[ 375]        :                                       
+[ 376]    0683:                                       n_outf:
+[ 377]        :                                       
+[ 378]    0683: C3                                    ret
+[ 379]        :                                       
+[ 380]        :                                       new_SEARCH ENDP
+[ 381]        :                                       END MAIN
+[ 382]        :                                       
+[ 383]        :                                       
+[ 384]        :                                       
+[ 385]        :                                       
+[ 386]        :                                       
+[ 387]        :                                       
+[ 388]        :                                       
+[ 389]        :                                       
+[ 390]        :                                       
+[ 391]        :                                       
+[ 392]        :                                       
+[ 393]        :                                       
+[ 394]        :                                       
+[ 395]        :                                       
+[ 396]        :                                       
+[ 397]        :                                       
+[ 398]        :                                       
+[ 399]        :                                       
+[ 400]        :                                       
+[ 401]        :                                       
+[ 402]        :                                       
+[ 403]        :                                       
+ 
+===================================================================================================
+ 
+EXE HEADER - bytes from 0000 to 01FF inclusive.
+
+0000: 4D      -   exe signature (M)
+0001: 5A      -   exe signature (Z)
+0002: 84      -   bytes on last page (l.byte)
+0003: 00      -   bytes on last page (h.byte)
+0004: 05      -   512 byte pages in file (l.byte)
+0005: 00      -   512 byte pages in file (h.byte)
+0006: 01      -   relocations (l.byte)
+0007: 00      -   relocations (h.byte)
+0008: 20      -   paragraphs in header (l.byte)
+0009: 00      -   paragraphs in header (h.byte)
+000A: 00      -   minimum memory (l.byte)
+000B: 00      -   minimum memory (h.byte)
+000C: FF      -   maximum memory (l.byte)
+000D: FF      -   maximum memory (h.byte)
+000E: 00      -   SS - stack segment (l.byte)
+000F: 00      -   SS - stack segment (h.byte)
+0010: 00      -   SP - stack pointer (l.byte)
+0011: 01      -   SP - stack pointer (h.byte)
+0012: 62      -   check sum (l.byte)
+0013: F5      -   check sum (h.byte)
+0014: 00      -   IP - instruction pointer (l.byte)
+0015: 00      -   IP - instruction pointer (h.byte)
+0016: 50      -   CS - code segment (l.byte)
+0017: 00      -   CS - code segment (h.byte)
+0018: 1E      -   relocation table adress (l.byte)
+0019: 00      -   relocation table adress (h.byte)
+001A: 00      -   overlay number (l.byte)
+001B: 00      -   overlay number (h.byte)
+001C: 01      -   signature (l.byte)
+001D: 00      -   signature (h.byte)
+001E: 01      -   relocation table - offset inside segment (l.byte)
+001F: 00      -   relocation table - offset inside segment (h.byte)
+0020: 50      -   relocation table - segment anchor (l.byte)
+0021: 00      -   relocation table - segment anchor (h.byte)
+0022 to 01FF  -   reserved relocation area  (00) 
+
+
+
+
+===================================================================================================
